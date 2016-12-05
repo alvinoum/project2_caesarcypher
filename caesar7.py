@@ -36,7 +36,7 @@ MAX_KEY_SiZE = 26
 print ('Do you wish to Encrypt or Decrypt?')
 
 # def = defining a function
-# getMode(): is the of the function
+# getMode(): is the function being created
 def getMode():
     # "while" is a loop that repeastedly executes a target statement as long as the given condition is true.
     # "True" is a bool type value that is valid
@@ -59,4 +59,14 @@ def getMode():
             return mode
         # else: excute if statement is false
         else:
-            print('Enter either "encrpyt" or "e" or decypt" or decrypt".')
+            # print: display follow text to user
+            print('Enter either "encrpyt" or "e" or "d" or "decrypt".')
+# def: defining a function
+# getMessage(): is the function being created
+def getMessage():
+    # print: display to the user
+    print('Enter your message here:')
+    #return - gets the input of encrypt or decrypt and give it back to the program.
+    #input() have the user define a string
+    return input()
+            
