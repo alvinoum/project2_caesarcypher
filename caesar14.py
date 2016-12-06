@@ -30,7 +30,7 @@ def getMode(): # Deciding to Encrypt or Decrypt
     # "True" is a bool type value that is valid
     while True:
         # "print('')" is sending a string function
-        print('Do you wish to encrypt or decrypt a message? ')
+        print('Do you wish to encrypt or decrypt a message?')
         # mode is a value we created to equal input() and lower() as = is defining
         # input() is a built in function to allow the user to assign a value to the string.
         # lower() is convert the text to lowercase
@@ -41,14 +41,14 @@ def getMode(): # Deciding to Encrypt or Decrypt
         # "in" appears to be enclosed within the list
         # "'encrpyt e decrypt d'" is the list. It could also be written as ['encrypt', 'e', 'decrypt', 'd'].
         # ".spilt()" Python has a very neat function for breaking up strings into smaller strings. The split function splits a single string into a string array using the separator defined. If no separator is defined, whitespace is used. -www.pythonforbeginners.com/dictionary/python-split
-        if mode in 'encrpyt e decrypt d'.split():
+        if mode in 'encrypt e decrypt d'.split():
             # return: "This function will return the first character in mode as long as mode is equal to 'encrypt', 'e', 'decrypt', or 'd'. Therefore, getMode() will return the string 'e' or the string 'd' (but the user can type in either “e”, “encrypt”, “d”, or “decrypt”.)" -Inventwithpython
             # mode - created value of input().lower()
             return mode
-        # else: excute if statement is false
-        else:
+        
+        else: # else: execute if statement is false
             # print: display follow text to user
-            print('Enter either "encrpyt" or "e" or "d" or "decrypt".')
+            print('Enter either "encrypt" or "e" or "d" or "decrypt".')
 
 def getMessage(): # Getting the Message from the Player
     # print: display to the user
@@ -62,7 +62,7 @@ def getKey(): # Getting the Key from the Player
     while True:
         print('Enter your key number (1-%s)' % (MAX_KEY_SIZE)) # Intructions
         key = int(input()) # Limits user key input to integer
-        if (key >=1 and key <= MAX_KEY_SIZE): # Limits key to 1-26 (MAX_KEY_SIZE)
+        if (key >= 1 and key <= MAX_KEY_SIZE): # Limits key to 1-26 (MAX_KEY_SIZE)
             return key # Loops if key is not within range
         
 def getTranslatedMessage(mode, message, key): # Encrypt or Decrypt the message with the given Key
@@ -74,23 +74,22 @@ def getTranslatedMessage(mode, message, key): # Encrypt or Decrypt the message w
         if symbol.isalpha(): # only encrypts letters and ignore the others.
             num = ord(symbol) # num variable holds the integer ordinal value. ordinal value means ranking.
             num += key # shifts the value using the key. Let the decryption/encryption begin!
-            
-            if symbol.isupper(): # limits input to only uppercase letters.
+                
+            if symbol.isupper():            
                 if num > ord('Z'): # of variable is greater than rank Z
                     num -= 26 # go backwards
                 elif num < ord('A'): # else if variable is less than rank A
                     num += 26 # go forward
-                    
-                elif symbol.islower(): # limits input to also lowercase letters
-                    if num > ord('z'): # of variables greaters than rank z
-                        num -=26 # go backwards
-                    elif num < ord('a'): # of variables less than rank a
-                        num +=26 # go forwards
+            elif symbol.islower(): # limits input to also lowercase letters
+                if num > ord('z'): # of variables greaters than rank z
+                    num -= 26 # go backwards
+                elif num < ord('a'): # of variables less than rank a
+                    num += 26 # go forwards
                 
-                translated += chr(num) # "concatenates the encrypted/decrypted character to the translated string." aka turns "h e l l o" to "hello"
-            else:
-                translated += symbol # "concatenates the original symbol to the translated string. Therefore, spaces, numbers, punctuation marks, and other characters won’t be encrypted or decrypted." aka leaves the non letters as they are.
-            return translated # displays the concatenated characters.
+            translated += chr(num) # "concatenates the encrypted/decrypted character to the translated string." aka turns "h e l l o" to "hello"
+        else:
+            translated += symbol # "concatenates the original symbol to the translated string. Therefore, spaces, numbers, punctuation marks, and other characters won’t be encrypted or decrypted." aka leaves the non letters as they are.
+    return translated # displays the concatenated characters.
 
 mode = getMode() # defining function
 message = getMessage() # defining function
