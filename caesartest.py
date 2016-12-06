@@ -15,3 +15,16 @@ def getMode():
 def getMessage():
     print('Enter your message:')
     return input()
+
+def getKey():
+    key = 0
+    while True:
+        print('Enter the key number (1-%s)' % (MAX_KEY_SIZE))
+        key = int(input())
+        if (key >= 1 and key <= MAX_KEY_SIZE):
+            return key
+
+def getTranslatedMessage(mode, message, key):
+    if mode[0] == 'd':
+        key = -key
+    translated = ''
