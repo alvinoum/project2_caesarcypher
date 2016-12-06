@@ -84,9 +84,9 @@ def getTraslatedMessage(mode, message, key): # Encrypt or Decrypt the message wi
                 elif num < ord('A'): # else if variable is less than rank A
                     num += 26 # go forward
                     
-                    elif symbol.islower(): # limits input to also lowercase letters
-                        if num > ord('z'): # of variables greaters than rank z
-                            num -=26 # go backwards
-                        elif num < ord('a'): # of variables less than rank a
-                            num +=26 # go forwards
+                elif symbol.islower(): # limits input to also lowercase letters
+                    if num > ord('z'): # of variables greaters than rank z
+                        num -=26 # go backwards
+                    elif num < ord('a'): # of variables less than rank a
+                        num +=26 # go forwards
             
