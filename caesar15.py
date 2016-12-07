@@ -61,9 +61,14 @@ def getKey(): # Getting the Key from the Player
     key = 0 # If 0 is entered, the user is prompted
     while True:
         print('Enter your key number (1-%s)' % (MAX_KEY_SIZE)) # Intructions
-        key = int(input()) # Limits user key input to integer
-        if (key >= 1 and key <= MAX_KEY_SIZE): # Limits key to 1-26 (MAX_KEY_SIZE)
-            return key # Loops if key is not within range
+        try:
+            key = int(input()) # Limits user key input to integer
+        except ValueError:
+            print('Try again! Enter your a number (1-%s)' % (MAX_KEY_SIZE))
+            continue
+        else:
+            if (key >= 1 and key <= MAX_KEY_SIZE): # Limits key to 1-26 (MAX_KEY_SIZE)
+                return key # Loops if key is not within range
         
 def getTranslatedMessage(mode, message, key): # Encrypt or Decrypt the message with the given Key
     if mode[0] == 'd': # if mode is equal to d, enter decrypt mode.
